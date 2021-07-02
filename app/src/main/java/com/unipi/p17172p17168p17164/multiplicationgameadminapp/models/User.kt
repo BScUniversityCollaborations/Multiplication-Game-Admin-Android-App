@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.models
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.models
 
 import android.os.Parcelable
 import androidx.annotation.Keep
@@ -14,7 +14,8 @@ import java.util.*
 @Parcelize
 @IgnoreExtraProperties
 data class User(
-    val userId: String = "",
+    var userId: String = "",
+    val admin: Boolean = false,
     val fullName: String = "",
     val email: String = "",
     @ServerTimestamp

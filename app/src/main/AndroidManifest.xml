@@ -41,19 +41,6 @@
             android:theme="@style/Theme.MultiplicationGame"
             android:windowSoftInputMode="adjustResize"/>
 
-        <!-- Sign Up activity -->
-        <activity
-            android:name=".ui.activities.SignUpActivity"
-            android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/Theme.MultiplicationGame"
-            android:parentActivityName=".ui.activities.SignInActivity">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activities.SignInActivity" />
-        </activity>
-
         <!-- Forgot Password activity -->
         <activity
             android:name=".ui.activities.ForgotPasswordActivity"
@@ -67,9 +54,9 @@
                 android:value=".ui.activities.SignInActivity" />
         </activity>
 
-        <!-- Tables Test activity -->
+        <!-- Users List activity -->
         <activity
-            android:name=".ui.activities.TablesListActivity"
+            android:name=".ui.activities.UsersListActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.MultiplicationGame"
@@ -80,12 +67,18 @@
                 android:value=".ui.activities.MainMenuActivity" />
         </activity>
 
-        <!-- Table Test Equation activity -->
+        <!-- User details activity -->
         <activity
-            android:name=".ui.activities.TableResultActivity"
+            android:name=".ui.activities.UserDetailsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/Theme.MultiplicationGame" />
+            android:theme="@style/Theme.MultiplicationGame"
+            android:parentActivityName=".ui.activities.UsersListActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.UsersListActivity" />
+        </activity>
 
         <!-- Profile Details activity -->
         <activity

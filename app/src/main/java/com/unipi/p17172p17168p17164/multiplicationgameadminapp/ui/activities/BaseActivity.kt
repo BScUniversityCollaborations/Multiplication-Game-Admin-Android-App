@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.ui.activities
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities
 
 import android.app.Activity
 import android.app.Dialog
@@ -9,8 +9,8 @@ import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.unipi.p17172p17168p17164.multiplicationgame.R
-import com.unipi.p17172p17168p17164.multiplicationgame.utils.Constants
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils.Constants
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit
  * It inherits the AppCompatActivity class so in other activity class we will replace the AppCompatActivity with BaseActivity.
  */
 open class BaseActivity : AppCompatActivity() {
-    private lateinit var player: MediaPlayer
 
     // Create an executor that executes tasks in a background thread.
     private val backgroundExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
@@ -70,16 +69,6 @@ open class BaseActivity : AppCompatActivity() {
         startActivity(Intent(context, SignInActivity::class.java))
     }
 
-    fun goToSignInActivity(context: Context, showRegisteredSnackBar: Boolean, userEmail: String) {
-
-        val intent = Intent(context, SignInActivity::class.java)
-        intent.putExtra(Constants.EXTRA_REG_USERS_SNACKBAR, showRegisteredSnackBar)
-        intent.putExtra(Constants.EXTRA_USER_EMAIL, userEmail)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        finish()
-        startActivity(intent)
-    }
-
     /**
      * A function to implement the double back press feature to exit the app.
      */
@@ -111,19 +100,4 @@ open class BaseActivity : AppCompatActivity() {
         player.setOnCompletionListener { player.release() }
     }
 
-    fun playNegativeSound(activity: Activity) {
-        val player: MediaPlayer = MediaPlayer.create(activity, R.raw.alert_negative_error)
-        player.isLooping = false
-        player.setVolume(Constants.VOLUME_MAX, Constants.VOLUME_MAX)
-        player.start()
-        player.setOnCompletionListener { player.release() }
-    }
-
-    fun playPositiveSound(activity: Activity) {
-        val player: MediaPlayer = MediaPlayer.create(activity, R.raw.alert_success)
-        player.isLooping = false
-        player.setVolume(Constants.VOLUME_MEDIUM, Constants.VOLUME_MEDIUM)
-        player.start()
-        player.setOnCompletionListener { player.release() }
-    }
 }

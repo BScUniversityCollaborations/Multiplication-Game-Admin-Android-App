@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.ui.activities
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,8 @@ import android.text.TextWatcher
 import android.view.animation.AnimationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.unipi.p17172.emarket.utils.SnackBarErrorClass
-import com.unipi.p17172p17168p17164.multiplicationgame.R
-import com.unipi.p17172p17168p17164.multiplicationgame.database.FirestoreHelper
-import com.unipi.p17172p17168p17164.multiplicationgame.databinding.ActivitySignInBinding
-import com.unipi.p17172p17168p17164.multiplicationgame.utils.Constants
-import com.unipi.p17172p17168p17164.multiplicationgame.utils.SnackBarSuccessClass
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.ActivitySignInBinding
 
 
 class SignInActivity : BaseActivity() {
@@ -28,17 +25,6 @@ class SignInActivity : BaseActivity() {
     }
 
     private fun init() {
-        if (intent.hasExtra(Constants.EXTRA_REG_USERS_SNACKBAR)) {
-            if (intent.extras?.getBoolean(Constants.EXTRA_REG_USERS_SNACKBAR) == true) {
-                SnackBarSuccessClass
-                    .make(binding.root,
-                        getString(R.string.txt_congratulations),
-                        getString(R.string.txt_sign_up_successful))
-                    .show()
-            }
-            binding.inputTxtEmail.setText(intent.getStringExtra(Constants.EXTRA_USER_EMAIL).toString())
-        }
-
         setupUI()
         setupClickListeners()
     }
@@ -69,24 +55,23 @@ class SignInActivity : BaseActivity() {
 
     private fun setupClickListeners() {
         binding.apply {
-            txtViewSignUp.setOnClickListener {
-                // Launch the sign up screen when the user clicks on the sign up text.
-                val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
-                startActivity(intent)
-            }
             txtViewForgotPassword.setOnClickListener {
+                playButtonPressSound(this@SignInActivity)
                 // Launch the forgot password screen when the user clicks on the forgot password text.
                 val intent = Intent(this@SignInActivity, ForgotPasswordActivity::class.java)
                 startActivity(intent)
             }
-            btnSignIn.setOnClickListener { signInUser() }
+            btnSignIn.setOnClickListener {
+                playButtonPressSound(this@SignInActivity)
+                signInUser()
+            }
         }
     }
 
     private fun signInUser() {
         if (validateFields()) {
             // Show the progress dialog.
-            showProgressDialog()
+            showProgressDialog(this)
 
             binding.apply {
                 // Get the text from editText and trim the space
@@ -99,10 +84,12 @@ class SignInActivity : BaseActivity() {
 
                         FirebaseAuth.getInstance()
                         if (task.isSuccessful) {
-                            FirestoreHelper().getUserDetails(this@SignInActivity)
-                        } else {
+                            userLoggedInSuccess()
+                        }
+                        else {
                             // Hide the progress dialog
                             hideProgressDialog()
+
                             SnackBarErrorClass
                                 .make(root, task.exception!!.message.toString())
                                 .show()
@@ -117,7 +104,7 @@ class SignInActivity : BaseActivity() {
     /**
      * A function to notify user that logged in success and get the user details from the FireStore database after authentication.
      */
-    fun userLoggedInSuccess() {
+    private fun userLoggedInSuccess() {
 
         // Hide the progress dialog.
         hideProgressDialog()

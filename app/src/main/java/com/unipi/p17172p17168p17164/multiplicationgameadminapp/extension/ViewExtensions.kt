@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.extension
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.extension
 
 import android.view.View
 import android.view.ViewGroup

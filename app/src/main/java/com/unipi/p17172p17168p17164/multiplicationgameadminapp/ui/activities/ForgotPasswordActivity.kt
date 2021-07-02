@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.ui.activities
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,9 +7,9 @@ import android.text.TextWatcher
 import android.view.animation.AnimationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.unipi.p17172.emarket.utils.SnackBarErrorClass
-import com.unipi.p17172p17168p17164.multiplicationgame.R
-import com.unipi.p17172p17168p17164.multiplicationgame.databinding.ActivityForgotPasswordBinding
-import com.unipi.p17172p17168p17164.multiplicationgame.utils.SnackBarSuccessClass
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.ActivityForgotPasswordBinding
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils.SnackBarSuccessClass
 import java.util.*
 
 class ForgotPasswordActivity : BaseActivity() {

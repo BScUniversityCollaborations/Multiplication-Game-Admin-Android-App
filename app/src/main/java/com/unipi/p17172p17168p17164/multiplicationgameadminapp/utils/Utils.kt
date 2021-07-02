@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.utils
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils
 
 import android.app.Activity
 import android.content.Context

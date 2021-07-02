@@ -1,8 +1,8 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.ui.activities
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities
 
 import android.os.Bundle
-import com.unipi.p17172p17168p17164.multiplicationgame.R
-import com.unipi.p17172p17168p17164.multiplicationgame.databinding.ActivityUserProfileBinding
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.ActivityUserProfileBinding
 
 
 class ProfileDetailsActivity : BaseActivity() {

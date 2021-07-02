@@ -1,4 +1,4 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.models
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.models
 
 import android.os.Parcelable
 import androidx.annotation.Keep

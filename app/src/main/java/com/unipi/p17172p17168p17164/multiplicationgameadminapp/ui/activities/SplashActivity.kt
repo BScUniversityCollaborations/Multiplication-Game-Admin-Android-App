@@ -1,12 +1,12 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.ui.activities
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities
 
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import com.unipi.p17172p17168p17164.multiplicationgame.database.FirestoreHelper
-import com.unipi.p17172p17168p17164.multiplicationgame.databinding.ActivitySplashBinding
-import com.unipi.p17172p17168p17164.multiplicationgame.utils.Constants
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.database.FirestoreHelper
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.ActivitySplashBinding
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils.Constants
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit

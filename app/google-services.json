@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:366050717738:android:b056b9e20ba5b1a75f5353",
         "android_client_info": {
-          "package_name": "com.unipi.p17172p17168p17164.multiplicationgame"
+          "package_name": "com.unipi.p17172p17168p17164.multiplicationgameadminapp"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "366050717738-0lq1c8bjs8a076uohc14861rja354gt4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.unipi.p17172p17168p17164.multiplicationgame",
+            "package_name": "com.unipi.p17172p17168p17164.multiplicationgameadminapp",
             "certificate_hash": "9361ef320f9b90679eb2e33f485f274d9cdaf783"
           }
         },

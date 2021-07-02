@@ -1,13 +1,13 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.utils
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.unipi.p17172p17168p17164.multiplicationgame.R
-import com.unipi.p17172p17168p17164.multiplicationgame.databinding.SnackbarSuccessBinding
-import com.unipi.p17172p17168p17164.multiplicationgame.extension.findSuitableParent
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.SnackbarSuccessBinding
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.extension.findSuitableParent
 
 class SnackBarSuccessClass(
     parent: ViewGroup,

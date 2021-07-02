@@ -1,11 +1,11 @@
-package com.unipi.p17172p17168p17164.multiplicationgame.utils
+package com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.ContentViewCallback
-import com.unipi.p17172p17168p17164.multiplicationgame.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
 
 class SnackBarErrorView @JvmOverloads constructor(
     context: Context,
