@@ -71,7 +71,7 @@ class SignInActivity : BaseActivity() {
     private fun signInUser() {
         if (validateFields()) {
             // Show the progress dialog.
-            showProgressDialog(this)
+            showProgressDialog()
 
             binding.apply {
                 // Get the text from editText and trim the space

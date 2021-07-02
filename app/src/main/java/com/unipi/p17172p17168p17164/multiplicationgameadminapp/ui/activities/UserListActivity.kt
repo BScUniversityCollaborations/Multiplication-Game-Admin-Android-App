@@ -35,6 +35,7 @@ class UsersListActivity : BaseActivity() {
      */
     fun successUsersListFromFirestore(usersList: ArrayList<User>) {
 
+        // Hide the progress dialogc
         hideProgressDialog()
 
         if (usersList.size > 0) {
@@ -43,10 +44,9 @@ class UsersListActivity : BaseActivity() {
 
             binding.apply {
                 recyclerView.run {
-                    adapter = usersListAdapter
-
-                    layoutManager = LinearLayoutManager(this@UsersListActivity, LinearLayoutManager.VERTICAL, false)
+                    layoutManager = LinearLayoutManager(this@UsersListActivity)
                     setHasFixedSize(true)
+                    adapter = usersListAdapter
                 }
             }
         }
@@ -66,9 +66,9 @@ class UsersListActivity : BaseActivity() {
         }
     }
 
-    override fun onResume() {
+    /*override fun onResume() {
         super.onResume()
 
         loadUsers()
-    }
+    }*/
 }

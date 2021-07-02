@@ -50,13 +50,15 @@ class UserDetailsActivity : BaseActivity() {
     }
 
     private fun loadUserDetails() {
+
         showProgressDialog()
 
-        FirestoreHelper().getUserDetails(this, userId)
+        FirestoreHelper().getUserDetails(this@UserDetailsActivity, userId)
     }
 
     fun successUserDetailsFromFirestore(user: User) {
 
+        // Hide the progress dialog
         hideProgressDialog()
 
         modelUser = user
@@ -66,6 +68,7 @@ class UserDetailsActivity : BaseActivity() {
             inputTxtFullName.setText(modelUser.fullName)
             switchBtnAdminAccess.isChecked = modelUser.admin
         }
+
     }
 
     /**
@@ -108,15 +111,6 @@ class UserDetailsActivity : BaseActivity() {
             .make(binding.root, getString(R.string.txt_success_done), getString(R.string.txt_success_update_user))
             .show()
     }
-
-    override fun onResume() {
-        super.onResume()
-
-        if (checkIntentExtras()) {
-            loadUserDetails()
-        }
-    }
-
 
     private fun validateFields(): Boolean {
         binding.apply {
