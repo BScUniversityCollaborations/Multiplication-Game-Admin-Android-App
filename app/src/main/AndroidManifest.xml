@@ -79,18 +79,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.UsersListActivity" />
         </activity>
-
-        <!-- Profile Details activity -->
-        <activity
-            android:name=".ui.activities.ProfileDetailsActivity"
-            android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize"
-            android:parentActivityName=".ui.activities.MainMenuActivity">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activities.MainMenuActivity" />
-        </activity>
         <!-- endregion [END Activities] -->
     </application>
 </manifest>

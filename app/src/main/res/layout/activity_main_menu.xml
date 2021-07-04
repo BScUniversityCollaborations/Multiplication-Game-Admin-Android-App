@@ -13,13 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -42,20 +42,19 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:layout_marginTop="46dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_abacus" />
+                    app:srcCompat="@drawable/png_abacus_admin" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_Users"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="0dp"
-                    android:soundEffectsEnabled="false"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
@@ -63,11 +62,12 @@
                     android:background="@drawable/ripple_btn_primary_selector"
                     android:fontFamily="@font/core_sans_cr_65_bold"
                     android:gravity="center"
+                    android:padding="12dp"
+                    android:soundEffectsEnabled="false"
                     android:text="@string/txt_users"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="32sp"
-                    android:padding="12dp"
                     app:backgroundTint="@null"
                     app:icon="@drawable/ic_user_group"
                     app:iconGravity="textStart"
@@ -84,37 +84,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_container_bottom"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <ImageButton
-            android:id="@+id/imgBtn_Profile"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/ripple_btn_oval_selector"
-            android:clickable="true"
-            android:padding="8dp"
-            android:paddingStart="15dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="15dp"
-            android:scaleType="fitCenter"
-            android:soundEffectsEnabled="false"
-            android:src="@drawable/ic_user"
-            app:iconGravity="textStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/colorWhiteLight" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

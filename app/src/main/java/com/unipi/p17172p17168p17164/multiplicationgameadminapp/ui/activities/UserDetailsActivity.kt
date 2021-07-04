@@ -24,9 +24,9 @@ class UserDetailsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         init()
-        setContentView(binding.root)
     }
 
     private fun init() {
