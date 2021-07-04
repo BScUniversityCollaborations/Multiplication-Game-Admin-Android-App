@@ -27,8 +27,8 @@
             android:background="@drawable/ripple_recycler_container">
 
             <TextView
-                android:id="@+id/txtView_Header"
-                android:layout_width="0dp"
+                android:id="@+id/txtView_Equation"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/core_sans_cr_55_medium"
@@ -37,54 +37,48 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/colorWhite"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/imgView_Edit"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/txtView_Number_Icon"
-                app:layout_constraintTop_toTopOf="@+id/txtView_Number_Icon" />
-
-            <ImageView
-                android:id="@+id/imgView_Edit"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="40dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="16dp"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:scaleType="centerInside"
-                android:soundEffectsEnabled="false"
-                android:src="@drawable/ic_edit_pencil"
-                app:layout_constraintBottom_toBottomOf="@+id/txtView_Header"
-                app:layout_constraintEnd_toEndOf="@+id/txtView_Email"
-                app:layout_constraintEnd_toStartOf="@+id/constraintLayout_Chevron"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/txtView_Header"
-                app:layout_constraintTop_toTopOf="@+id/txtView_Header"
-                app:tint="@color/colorWhiteLight" />
+                app:layout_constraintStart_toEndOf="@+id/imgView_Icon"
+                app:layout_constraintTop_toTopOf="@+id/imgView_Icon" />
 
             <TextView
-                android:id="@+id/txtView_Email"
+                android:id="@+id/txtView_Type"
+                style="@style/TextView_Medium"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:ellipsize="end"
-                android:fontFamily="@font/core_sans_cr_45_regular"
-                android:justificationMode="inter_word"
                 android:text="desc"
-                android:textAlignment="viewStart"
-                android:textColor="@color/colorTextLightPurple"
-                android:textSize="14sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/constraintLayout_Chevron"
-                app:layout_constraintStart_toStartOf="@+id/txtView_Header"
-                app:layout_constraintTop_toBottomOf="@+id/txtView_Header"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txtView_Equation"
+                app:layout_constraintTop_toBottomOf="@+id/txtView_Equation"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <TextView
+                android:id="@+id/txtView_Date_Added"
+                style="@style/TextView_Regular"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:text="desc"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorTextLightPurple"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtView_Equation"
+                app:layout_constraintEnd_toEndOf="@+id/txtView_Type"
+                app:layout_constraintEnd_toStartOf="@+id/constraintLayout_Chevron"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txtView_Equation"
+                app:layout_constraintTop_toTopOf="@+id/txtView_Equation" />
+
             <ImageView
-                android:id="@+id/txtView_Number_Icon"
+                android:id="@+id/imgView_Icon"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="@dimen/img_btn_width_large_70"
                 android:layout_height="@dimen/img_btn_width_large_70"
@@ -92,7 +86,6 @@
                 android:layout_marginTop="23dp"
                 android:layout_marginBottom="23dp"
                 android:background="@drawable/ic_circle_low_opacity"
-                android:fontFamily="@font/core_sans_cr_75_extra_bold"
                 android:gravity="center"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_user"
@@ -100,8 +93,7 @@
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorContainerShadow" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout_Chevron"

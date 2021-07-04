@@ -12,6 +12,7 @@ import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.ItemU
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.models.User
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities.BaseActivity
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities.UserDetailsActivity
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities.UserLogsListActivity
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils.Constants
 
 
@@ -44,10 +45,16 @@ open class UsersListAdapter(
         holder.binding.apply {
             txtViewHeader.text = model.fullName
             txtViewEmail.text = model.email
+            imgViewEdit.setOnClickListener {
+                BaseActivity().playButtonPressSound(activity)
+                val intent = Intent(activity, UserDetailsActivity::class.java)
+                intent.putExtra(Constants.EXTRA_USER_ID, model.userId)
+                activity.startActivity(intent)
+            }
         }
         holder.itemView.setOnClickListener {
             BaseActivity().playButtonPressSound(activity)
-            val intent = Intent(activity, UserDetailsActivity::class.java)
+            val intent = Intent(activity, UserLogsListActivity::class.java)
             intent.putExtra(Constants.EXTRA_USER_ID, model.userId)
             activity.startActivity(intent)
         }

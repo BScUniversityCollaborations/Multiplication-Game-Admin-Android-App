@@ -8,12 +8,13 @@ import android.view.LayoutInflater
 import android.view.Window
 import android.view.WindowManager
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.DialogNotAdminBinding
 
 class CustomDialog {
 
-    /*fun showSkipConfirmation(activity: Activity) {
+    fun showNotAdminDialog(activity: Activity) {
         val dialog = Dialog(activity)
-        val binding = DialogSkipBinding.inflate(LayoutInflater.from(activity))
+        val binding = DialogNotAdminBinding.inflate(LayoutInflater.from(activity))
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(true)
@@ -21,10 +22,6 @@ class CustomDialog {
         dialog.window?.setWindowAnimations(R.style.DialogAnimation)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-        dialog.window?.setFlags(
-            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-        )
 
         dialog.setContentView(binding.root)
 
@@ -33,6 +30,5 @@ class CustomDialog {
         }
 
         dialog.show()
-    }*/
-
+    }
 }

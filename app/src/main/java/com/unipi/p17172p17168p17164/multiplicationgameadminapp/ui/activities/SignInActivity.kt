@@ -9,7 +9,9 @@ import android.view.animation.AnimationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.unipi.p17172.emarket.utils.SnackBarErrorClass
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.R
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.database.FirestoreHelper
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.databinding.ActivitySignInBinding
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils.CustomDialog
 
 
 class SignInActivity : BaseActivity() {
@@ -80,20 +82,18 @@ class SignInActivity : BaseActivity() {
 
                 // Log-In using FirebaseAuth
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
+                    .addOnSuccessListener {
 
-                        FirebaseAuth.getInstance()
-                        if (task.isSuccessful) {
-                            userLoggedInSuccess()
-                        }
-                        else {
-                            // Hide the progress dialog
-                            hideProgressDialog()
+                        FirestoreHelper().isUserAdmin(this@SignInActivity)
+                    }
+                    .addOnFailureListener { e ->
 
-                            SnackBarErrorClass
-                                .make(root, task.exception!!.message.toString())
-                                .show()
-                        }
+                        // Hide the progress dialog
+                        hideProgressDialog()
+
+                        SnackBarErrorClass
+                            .make(root, e.message.toString())
+                            .show()
                     }
             }
         }
@@ -104,14 +104,21 @@ class SignInActivity : BaseActivity() {
     /**
      * A function to notify user that logged in success and get the user details from the FireStore database after authentication.
      */
-    private fun userLoggedInSuccess() {
+    fun userLoggedInSuccess(isAdmin: Boolean) {
 
         // Hide the progress dialog.
         hideProgressDialog()
 
-        // Redirect the user to Dashboard Screen after log in.
-        goToMainActivity(this@SignInActivity)
-        finish()
+        if (isAdmin) {
+            FirebaseAuth.getInstance()
+            // Redirect the user to Dashboard Screen after log in.
+            goToMainActivity(this@SignInActivity)
+            finish()
+        }
+        else {
+            CustomDialog().showNotAdminDialog(this)
+            FirebaseAuth.getInstance().signOut()
+        }
     }
 
     private fun validateFields(): Boolean {

@@ -24,6 +24,8 @@
     <string name="txt_welcome">Welcome</string>
     <string name="txt_edit_user_details">Edit User Details</string>
     <string name="txt_users_list">Users List</string>
+    <string name="txt_equation_format">%1$d x %2$d</string>
+    <string name="txt_type_format">➜ Type: %1$s</string>
 
     <!-- Snackbar -->
     <string name="txt_error_empty_password">Please enter your password.</string>
@@ -54,9 +56,11 @@
     <string name="txt_users">Users</string>
     <string name="txt_save">Save</string>
     <string name="txt_admin_access">Admin Access</string>
-
-    <string-array name="spinner_values">
-        <item>Yes</item>
-        <item>No</item>
-    </string-array>
+    <string name="button_logout">Logout</string>
+    <string name="txt_date_registered">Date Registered</string>
+    <string name="txt_access_denied">Access Denied!</string>
+    <string name="txt_access_denied_2">You must be an admin to continue.</string>
+    <string name="txt_no_logs">No Logs found!</string>
+    <string name="txt_no_logs_2">It seems like this user has not tracked performance 🤔</string>
+    <string name="txt_logs">User Logs</string>
 </resources>

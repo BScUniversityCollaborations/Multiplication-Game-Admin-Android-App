@@ -6,8 +6,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.models.User
-import com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities.UserDetailsActivity
-import com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities.UsersListActivity
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.models.UserLog
+import com.unipi.p17172p17168p17164.multiplicationgameadminapp.ui.activities.*
 import com.unipi.p17172p17168p17164.multiplicationgameadminapp.utils.Constants
 
 class FirestoreHelper {
@@ -54,12 +54,19 @@ class FirestoreHelper {
                         // Call a function of base activity for transferring the result to it.
                         activity.successUserDetailsFromFirestore(user)
                     }
+                    is ProfileDetailsActivity -> {
+                        // Call a function of base activity for transferring the result to it.
+                        activity.successProfileDetailsFromFirestore(user)
+                    }
                 }
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error. And print the error in log.
                 when (activity) {
                     is UserDetailsActivity -> {
+                        activity.hideProgressDialog()
+                    }
+                    is ProfileDetailsActivity -> {
                         activity.hideProgressDialog()
                     }
                 }
@@ -113,6 +120,71 @@ class FirestoreHelper {
                     else -> {}
                 }
                 Log.e("Get Users List", "Error while getting users list.", e)
+            }
+    }
+
+    fun getUserLogEntries(activity: Activity, userId: String) {
+        // The collection name for User Logs
+        dbFirestore.collection(Constants.COLLECTION_USER_LOGS)
+            .whereEqualTo(Constants.FIELD_USER_ID, userId)
+            .orderBy(Constants.FIELD_DATE_ADDED, Query.Direction.ASCENDING)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.d("User Logs List", document.documents.toString())
+
+                // Here we have created a new instance for user logs ArrayList.
+                val userLogsList: ArrayList<UserLog> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into user logs ArrayList.
+                for (i in document.documents) {
+
+                    val userLog = i.toObject(UserLog::class.java)
+                    userLog!!.logId = i.id
+
+                    userLogsList.add(userLog)
+                }
+                when (activity) {
+                    is UserLogsListActivity -> {
+                        activity.successUserLogsFromFireStore(userLogsList)
+                    }
+                    else -> {}
+                }
+            }
+            .addOnFailureListener { e ->
+                when (activity) {
+                    is UserLogsListActivity -> {
+                        activity.hideLogs()
+                    }
+                    else -> {}
+                }
+                Log.e("Get User Logs List", "Error while getting user logs list.", e)
+            }
+    }
+
+    fun isUserAdmin(activity: Activity) {
+        dbFirestore.collection(Constants.COLLECTION_USERS)
+            .whereEqualTo(Constants.FIELD_ADMIN, true)
+            .whereEqualTo(Constants.FIELD_USER_ID, getCurrentUserID())
+            .get()
+            .addOnSuccessListener {
+                when (activity) {
+                    is SignInActivity -> {
+                        if (it.size() > 0)
+                            activity.userLoggedInSuccess(true)
+                        else
+                            activity.userLoggedInSuccess(false)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                when (activity) {
+                    is SignInActivity -> {
+                        activity.hideProgressDialog()
+                    }
+                }
+                Log.e("Get User Is Admin", "Error while checking if user is admin.", e)
             }
     }
 

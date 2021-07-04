@@ -13,11 +13,12 @@ import java.util.*
 @Keep
 @Parcelize
 @IgnoreExtraProperties
-data class Log(
+data class UserLog(
     val userId: String = "",
-    val fullName: String = "",
-    val email: String = "",
-    val profileCompleted: Boolean = false,
+    val type: String = "", // time_up, skip, mistake, solved
+    val numFirst: Int = 0,
+    val numSecond: Int = 0,
     @ServerTimestamp
-    val dateRegistered: Date = Date(),
+    val dateAdded: Date = Date(),
+    var logId: String = "",
 ) : Parcelable

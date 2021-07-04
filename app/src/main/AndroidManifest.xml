@@ -79,6 +79,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.UsersListActivity" />
         </activity>
+
+        <!-- Profile Details activity -->
+        <activity
+            android:name=".ui.activities.ProfileDetailsActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".ui.activities.MainMenuActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainMenuActivity" />
+        </activity>
+
+        <!-- User Logs activity -->
+        <activity
+            android:name=".ui.activities.UserLogsListActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".ui.activities.UsersListActivity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.UsersListActivity" />
+        </activity>
         <!-- endregion [END Activities] -->
     </application>
 </manifest>
