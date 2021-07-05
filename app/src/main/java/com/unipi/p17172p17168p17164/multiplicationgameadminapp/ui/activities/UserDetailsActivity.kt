@@ -88,7 +88,7 @@ class UserDetailsActivity : BaseActivity() {
                 userHashMap[Constants.FIELD_FULL_NAME] = fullName
 
             if (adminAccess != modelUser.admin)
-                userHashMap[Constants.FIELD_FULL_NAME] = adminAccess
+                userHashMap[Constants.FIELD_ADMIN] = adminAccess
         }
 
         // call the registerUser function of FireStore class to make an entry in the database.
